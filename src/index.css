@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MediPlus SEA Design System - Beautiful health & wellness for Southeast Asia */
+
+@layer base {
+  :root {
+    /* SEA Health Color Palette - Based on provided hex colors converted to HSL */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Primary - Deep purple from 7A87FA */
+    --primary: 233 94% 73%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 240 68% 85%;
+
+    /* Secondary - Light lavender from C3CBF9 */
+    --secondary: 236 82% 87%;
+    --secondary-foreground: 233 94% 73%;
+
+    /* Accent colors for features */
+    --coral: 4 77% 80%;
+    --coral-foreground: 0 0% 100%;
+    
+    --peach: 25 86% 93%;
+    --peach-foreground: 25 40% 20%;
+    
+    --mint: 170 38% 82%;
+    --mint-foreground: 170 40% 20%;
+    
+    --cream: 25 86% 96%;
+    --cream-foreground: 25 40% 20%;
+
+    /* UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --muted: 25 86% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 236 82% 92%;
+    --input: 236 82% 96%;
+    --ring: 233 94% 73%;
+
+    /* SEA Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--coral)) 50%, hsl(var(--peach)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--cream)) 0%, hsl(var(--peach)) 100%);
+    --gradient-feature: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--primary-glow)) 100%);
+    --gradient-local: linear-gradient(135deg, hsl(var(--mint)) 0%, hsl(var(--cream)) 100%);
+
+    /* Shadows with SEA colors */
+    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-coral: 0 8px 25px -8px hsl(var(--coral) / 0.4);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground shadow-[var(--shadow-primary)] hover:shadow-[var(--shadow-glow)] transition-[var(--transition-smooth)] px-8 py-4 rounded-xl font-semibold text-lg;
+  }
+  
+  .btn-feature {
+    @apply bg-[var(--gradient-feature)] hover:scale-105 text-secondary-foreground shadow-[var(--shadow-coral)] transition-[var(--transition-bounce)] px-6 py-3 rounded-lg font-medium;
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    @apply bg-[var(--gradient-card)] hover:shadow-[var(--shadow-coral)] hover:scale-[1.02] transition-[var(--transition-smooth)] rounded-2xl p-6 border border-border/50;
+  }
+
+  /* Navigation Styles */
+  .nav-dropdown {
+    @apply bg-popover/95 backdrop-blur-sm border border-border shadow-[var(--shadow-primary)] rounded-lg p-2 min-w-[200px];
+  }
+
+  /* SEA Themed Animations */
+  .sea-float {
+    animation: seaFloat 3s ease-in-out infinite;
+  }
+  
+  .sea-glow {
+    animation: seaGlow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes seaFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes seaGlow {
+  0% { box-shadow: var(--shadow-primary); }
+  100% { box-shadow: var(--shadow-glow); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
